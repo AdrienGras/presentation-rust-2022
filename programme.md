@@ -10,10 +10,10 @@
 
 * Présentation du langage
     * Historique
-    * But
+    * Présentation
         * Remplacement C/C++
         * Ultra rapide mais sécurisé
-        * 1 exécutable avec tout dedans
+        * Langage préféré par les devs depuis 3 ans
 
 * Installation
     * One-line install
@@ -41,6 +41,7 @@
     * inférence de type
     * filtrage par motifs
     * généricité
+    * 1 exécutable avec tout dedans
 
 * Rust, on en fait quoi ?
     * on en fait... (système, CLI, ETL, haute perf, micro-webservices, remplacement vieux code C/C++)
@@ -49,6 +50,13 @@
 * Niveau performances ?
 
 * Les pours & contres
+    * pours
+        * Code performant
+        * Code safe
+    * contres
+        * Recrutement
+        * Courbe d'apprentissage
+        * Encore jeune
 
 * Rust VS le reste du monde
     * Rust VS langages (Go, Java, PHP, Python, JS/TS)
