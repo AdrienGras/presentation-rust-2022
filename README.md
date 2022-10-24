@@ -4,6 +4,8 @@
 
 ## Installer Rust
 
+## Setup son IDE (VSCode)
+
 ## Apprendre Rust
 
 ## Aller plus loin
