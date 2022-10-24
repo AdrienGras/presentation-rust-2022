@@ -16,6 +16,8 @@ La présentation a pour but de présenter rapidement le langage Rust, ainsi que 
 * Rust, on en fait quoi ?
 * Et dans 10 ans ?
 
+Voici le programme détaillé : [Programme](./programme.md)
+
 ## La présentation
 
 [Lien vers la présentation]()
