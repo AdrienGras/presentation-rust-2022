@@ -4,3 +4,9 @@ services:
   rust:
     build:
       dockerfile: dockerfile
+      args:
+        APP_NAME: $APP_NAME
+    image: rust-$APP_NAME
+    container_name: rust-$APP_NAME
+    environment:
+      APP_NAME: $APP_NAME
