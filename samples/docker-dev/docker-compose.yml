@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  rust:
+    build:
+      dockerfile: dockerfile
+    image: rust:latest
+    container_name: rust-runner
+    stdin_open: true
+    tty: true       
+    volumes:
+      - .:/srv/app
+    # you can add ports, tags, and other settings after this
+    # ports:
+    #  - "8080:80"

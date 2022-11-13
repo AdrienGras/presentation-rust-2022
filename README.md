@@ -12,15 +12,14 @@ La présentation a pour but de présenter rapidement le langage Rust, ainsi que 
 * Présentation du langage
 * Installation
 * Hello World ! 🦀
-* Les pours & contres
+* Les outils
 * Rust, on en fait quoi ?
-* Et dans 10 ans ?
 
-Voici le programme détaillé : [Programme](./programme.md)
+Voici le déroullement détaillé de la présentation : [Programme](./programme.md)
 
 ## La présentation
 
-[Lien vers la présentation]()
+[Lien vers la présentation](./slides/Rust.pptx)
 
 ## Les ressources
 
@@ -46,12 +45,43 @@ Je vous recommande les extensions VS suivantes pour être efficace :
 
 Voici un petit parcours pour apprendre à votre rythme à utiliser Rust et créer des applications : 
 
-1. [Le cookbook](https://jimskapt.github.io/rust-book-fr/) - Le cookbook pour commencer à utiliser Rust 📙.
+1. [Le cookbook](https://jimskapt.github.io/rust-book-fr/) - Le cookbook pour commencer à apprendre et utiliser Rust 📙.
 2. [Rust by examples](https://doc.rust-lang.org/rust-by-example/) - Des exemples concrêts pour comprendre Rust 🚀.
 3. [Rustlings](https://github.com/rust-lang/rustlings) - Des exercices intéractifs pour apprendre Rust ⏩.
 
-### Aller plus loin
+### Des vidéos pour comprendre Rust
 
-### Médias
+* [Let's Get Rusty - The rust lang book](https://youtube.com/playlist?list=PLai5B987bZ9CoVR-QEIN9foz4QCJ0H2Y8)
+* [No Boilerplate - Rust makes you feel like a GENIUS](https://youtu.be/0rJ94rbdteE) **Note :** *vidéo qui permet de comprendre facilement le concept de "borrow"*
+* [Code to the moon - Rust Demystified 🪄 Simplifying The Toughest Parts](https://youtu.be/TJTDTyNdJdY)
+* [Code to the moon - Rust's Alien Data Types 👽 Box, Rc, Arc](https://youtu.be/CTTiaOo4cbY)
+
+### Quelques librairies utiles
+
+* [Clap](https://crates.io/crates/clap) pour créer des CLI facilement.
+* [Serde](https://serde.rs/) pour la manipulation de JSON.
+* [Rocket](https://rocket.rs/) comme framework web. *(équivalent Symfony/Laravel, Django, etc.)*
+* [Actix](https://actix.rs/) pour créer un serveur web rapidement. *(Equivalent expressJS)*
+* [Disel](https://diesel.rs/) comme ORM SQL. *(Equivalent Doctrine, Sequelize, etc.)*
+* [sqlx](https://github.com/launchbadge/sqlx) pour intéragir plus simplement avec une base de données.
+* [yew](https://yew.rs/) pour un frontend moderne en Rust *(Equivalent React)*
+* [Rust + WASM](https://rustwasm.github.io/docs/book/) ou WASM pour intégrer simplement Rust et Javascript.
+* [TauRi](https://tauri.app/) pour construire des apps hybrides *(Equivalent Electron)*
+* [Bevy](https://bevyengine.org/) comme moteur de jeu-vidéo.
+
+### Des conteneurs docker prêts à l'emploi
+
+Vous pourrez trouver mes conteneurs docker prêt à l'emploi dans le dossier [samples](./samples/README.md).
+
+### Quelques autres médias
+
+* [Fireship - Rust in 100 seconds](https://youtu.be/5C_HPTJg5ek)
+* [NoBoilerplate - Rust talks](https://youtube.com/playlist?list=PLZaoyhMXgBzoM9bfb5pyUOT3zjnaDdSEP)
+* [Fireship - Tauri in 100 seconds](https://youtu.be/-X8evddpu7M)
+* [Fireship - WASM in 100 seconds](https://youtu.be/cbB3QEwWMlA)
 
 ## Licence
+
+Les sources de ce repository sont sous [licence MIT](./LICENSE.md).
+
+La présentation et son contenu peuvent être utilisés de manière libre, à la seule condition de citer la source et l'auteur original.

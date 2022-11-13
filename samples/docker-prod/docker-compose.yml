@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  rust:
+    build:
+      dockerfile: dockerfile
+    restart: "unless-stopped"
+    image: rust-prod-runner
+    container_name: rust-prod-runner
