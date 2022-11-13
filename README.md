@@ -15,11 +15,8 @@ La présentation a pour but de présenter rapidement le langage Rust, ainsi que 
 * Les outils
 * Rust, on en fait quoi ?
 
-Voici le déroullement détaillé de la présentation : [Programme](./programme.md)
-
-## La présentation
-
-[Lien vers la présentation](./slides/Rust.pdf)
+Voici le script de la présentation : [Programme](./programme.md)  
+Et aussi les slides : [Lien vers la présentation](./slides/Rust.pdf)
 
 ## Les ressources
 
@@ -41,6 +38,8 @@ Je vous recommande les extensions VS suivantes pour être efficace :
 * [Better TOML](https://marketplace.visualstudio.com/items?itemName=bungcip.better-toml) - Synthax highlight et auto-complétion des fichiers TOML.
 * [Error lens (optionnel)](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens) - Permet d'avoir les erreurs de compilation en bout de ligne de code en place des simples sous-lignages jaunes et rouges.
 
+Vous trouverez l'installation de ces extensions et leurs configurations dans [cette vidéo de Let's Get Rusty - IDE Setup For Rust Development](https://youtu.be/x_iZEK6Rww4)
+
 ### Apprendre Rust
 
 Voici un petit parcours pour apprendre à votre rythme à utiliser Rust et créer des applications : 
@@ -51,10 +50,10 @@ Voici un petit parcours pour apprendre à votre rythme à utiliser Rust et crée
 
 ### Des vidéos pour comprendre Rust
 
-* [Let's Get Rusty - The rust lang book](https://youtube.com/playlist?list=PLai5B987bZ9CoVR-QEIN9foz4QCJ0H2Y8)
-* [No Boilerplate - Rust makes you feel like a GENIUS](https://youtu.be/0rJ94rbdteE) **Note :** *vidéo qui permet de comprendre facilement le concept de "borrow"*
-* [Code to the moon - Rust Demystified 🪄 Simplifying The Toughest Parts](https://youtu.be/TJTDTyNdJdY)
-* [Code to the moon - Rust's Alien Data Types 👽 Box, Rc, Arc](https://youtu.be/CTTiaOo4cbY)
+* [Let's Get Rusty - The rust lang book](https://youtube.com/playlist?list=PLai5B987bZ9CoVR-QEIN9foz4QCJ0H2Y8) - playlist qui suit et explique le Rust cookbook.
+* [No Boilerplate - Rust makes you feel like a GENIUS](https://youtu.be/0rJ94rbdteE) - vidéo qui permet de comprendre facilement le concept de "borrow"
+* [Code to the moon - Rust Demystified 🪄 Simplifying The Toughest Parts](https://youtu.be/TJTDTyNdJdY) - vidéo d'explication sur les concepts complexes à aborder pour un nouveau développeur
+* [Code to the moon - Rust's Alien Data Types 👽 Box, Rc, Arc](https://youtu.be/CTTiaOo4cbY) - explication des types de smart-pointers
 
 ### Quelques librairies utiles
 
@@ -79,6 +78,8 @@ Vous pourrez trouver mes conteneurs docker prêt à l'emploi dans le dossier [sa
 * [NoBoilerplate - Rust talks](https://youtube.com/playlist?list=PLZaoyhMXgBzoM9bfb5pyUOT3zjnaDdSEP)
 * [Fireship - Tauri in 100 seconds](https://youtu.be/-X8evddpu7M)
 * [Fireship - WASM in 100 seconds](https://youtu.be/cbB3QEwWMlA)
+* [kostya - benchmarks](https://github.com/kostya/benchmarks#measurements)
+* [Vercel - benchmarks](https://programming-language-benchmarks.vercel.app/go-vs-rust)
 
 ## Licence
 
