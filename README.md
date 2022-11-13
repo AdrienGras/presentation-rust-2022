@@ -19,7 +19,7 @@ Voici le déroullement détaillé de la présentation : [Programme](./programme.
 
 ## La présentation
 
-[Lien vers la présentation](./slides/Rust.pptx)
+[Lien vers la présentation](./slides/Rust.pdf)
 
 ## Les ressources
 
