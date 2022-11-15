@@ -1,233 +1,421 @@
 # Programme de la présentation
 
-Consignes de lecture du plan
-* Les parties en italiques sont des didascalies, énoncés à l'oral
-* Le reste du texte compose les slides
-* Les titres sont les parties du powerpoint (splitter full page avec juste le titre)
-
-> **Durée: 35-40min**
-
-# Rust, ou le langage pour les 10 ans à venir
-
-* A qui se destine la présentation ? (1m)
-    * tech
-        * *se lancer avec le langage*
-        * *connaitre de nouvelles manières de faire*
-    * CTO
-        * *connaitre de nouvelles alternatives pour produire du soft adapté*
-    * les autres
-        * *la curiosité*
-    * *y'en aura pour tout le monde dans la prez de toute façon*
-
-## Mais... C'est qui ?
-
-* Présentation personnelle (1m)
-    * Architecte solution chez Owlnext​
-        * Algorithmie avancée & R&D
-        * Architecture applicative
-        * Infrastructure & sécurité
-    * Auparavant Head of software & sytem architecture chez iBanFirst​
-        * Equipe de 5 personne
-        * En charge de l'infrastructure applicative et bancaire
-        * Chargé des projets R&D
-    * Quelques réalisations​
-        * Conception d’un système de chiffrage end-to-end : Heimdall​ (https://heimdall-tech.fr/)
-        * Création d’un système de téléphonie VoIP via WebRTC avec IVRs, Files d’attentes, redirections d’appels, connexions CRM, etc.​
-        * Refactoring d’un serveur de connexion aux salles de marchés internationale
-
-## Rust kezako ?
-
-* Présentation du langage (2m)
-    * Présentation
-        * Langage bas niveau, remplacement C++
-        * Deux mots : performances & sécurité
-    * Utilisé principalement pour
-        * CLI & backend
-        * front-end avec WebAssembly
-        * services réseau
-        * applications embarqués
-    * Créé en 2006 par Graydon Hoare, puis repris en 2010 par la fondation Mozilla
-    * Version actuelle : 1.65.0 (2 Novembre)
-
-* Pourquoi choisir Rust ?
-    * Il a
-        * Des types de données algébriques
-        * La validation de l'exécution au moment de la compilation
-        * De la métaprogrammation
-        * Un transpileur natif et intégré
-        * Les monads
-    * Il n'a pas
-        * De surprise à l'exécution
-        * De classes
-        * D'environnement d'exécution ou de VM
-        * Pas de transformation en bytecode
-        * Pas de compilation JIT
-        * Pas de garbage collector
-
-> *Deux colonnes, les "il a " et les "il n'a pas"*
-
-* Principaux points techniques (4m)
-    * Orientation bas niveau
-        * gestion de la mémoire
-        * pointeurs, et smart pointers
-    * thread safe intégré directement au langage & à la compilation
-    * Memory safe
-        * typage strict
-        * accès mémoires validés par le compilo
-        * variables immutables par défaut
-        * messages safe entre threads
-        * PAS DE NULL
-    * inférence de type
-    * filtrage par motifs
-    * généricité & metaprogramming
-> note: peut-être à split en deux slide cette partie
-
-* Langage préféré depuis 7 ans sur SO
-*Graphique des langages préférés sur stackoverflow*
-
-## On se lance ?
-
-* Installation (2-3m)
-    * One-line install en 1 minute
-
-> *Juste la ligne de commande rustup sh sur le slide -> simplicité*
-
-* L'IDE : VSCode
-    * VS est l'IDE le mieux intégré au niveau Rust pour l'instant
-        * *Et pourtant grand fan de Jetbrains devant l'éternel*
-    * Setup en quelques installations d’extensions​
-        * *1 minute, 5 extensions, et go*
-
-* `println!("Hello world ! 🦀");` (2m)
-    * *Sreen avec fn main() -> _ {....}*
-
-## Et après ?
-
-* Le déploiement (2m)
-    * un seul binaire, même pour un micro service
-    * lançable en une seule ligne
-    * containeurisable en 10 lignes
-    * outils CI/CD
-
-* Le gestionnaire de packets : Cargo
-    * Cargo
-        * package jamais effacés, invalidé pour nouveaux projets
-        * approx 100k packages (npm 2012)
-
-*Equivalent de NPM pour node*
-
-* Des outils supplémentaires
-    * CargoTest
-        * Lancer des tests unitaires
-            * *test intégrables au code, pas besoin de fichiers supplémentaires*
-    * Clippy
-        * Linter qui force a écrire du rust "correctement"
-    * Rustfmt
-        * Formatteur de code rust intégrable aux IDE et à la CI
-    * CargoDoc
-        * Documenteur automatisé de code & librairies
-
-## Rust, on en fait quoi ?
-
-* Rust, on en fait quoi ? (3m)
-    * on en fait... (système, CLI, ETL, haute perf, micro-webservices, remplacement vieux code C/C++, web)
-    * on ne fait pas (pour l'instant) (IHM/clients lourds*, apps mobiles*)
-
-* Un rapide tour
-    * CLI (clip)
-    * Web frameworks (Rocket)
-        * SQL ? (sqlx, ORM diesel)
-    * Web (wasm, yew)
-    * Apps mobiles (intégration Flutter pour code métier)
-    * Apps hybride (EGUI, TauRi)
-    * Jeux (Bevy)
-
-## Niveau performances & fiabilité ? (2m)
-
-* La performance de Rust
-    * Au lieu de balancer des benchmarks soulant
-    * Prendre 3 exemples concrets
-
-> Les 3 exemples suivants ne seront qu'à l'oral avec un screen en support
-
-* ex discord
-> Capture 1 - logo discord
-
-*Pas besoin de présenter ? discord*
-
-> Capture 1 - graph avec Go
-
-*systèmes de serveurs initiaux écrits en Go*  
-*Problème de lags fréquents toutes les deux minutes*  
-*observation que c'est à cause du GC, même après full optimisation*  
-
-> Capture 2  
-
-*réécriture en Rust, sans opti, plus performant que Go*  
-*après finetuning, Rust bat Go dans tout les domaines*  
-
-* ex cloudflare
-
-> Capture 1 - logo cloudflare
-
-*Plus complexe, pas forcément vu celui là : cloudflare*  
-*reverse proxy, failovers, etc.*
-
-> Capture 2 - schéma tech nginx
-
-*Cloudfare a réécrit son service de proxy en Rust car Nginx n'était plus assez rapide*  
-*On parle de Nginx, écrit en C, proxy/reverse l'un des plus rapide du marché finetuné par cloudflare*  
-
-> Capture 2 - schéma tech pingora
-
-*Pingora, le remplaçant écrit en rust, utilise 70% de CPU en moins, et 67% de RAM en moins*
-*Alors qu'il sert 1 billion de rquêtes par jours, c'est 1 avec 12 zéros derrière*
-
-> Capture citation bugs
-
-* ex noyau linux
-
-> screen linus torvalds
-*qui est ce mec ?*
-*Linus torvalds, écrit le noyau linux en 1986, supervise toujours aujourd'hui*
-*Il est souvent connu pour son attention aux détails*
-*Ce mec a dit non à l'intégration de C++ dans le noyau car je site :"
-
-> Capture linus c++ is shit
-
-*Dans la version 6.1 de Linux, une partie concernant les drivers sera écrite en Rust*
-*Je vous laisse cogiter là dessus*
-
-* D'autres utilisations
-    * Deno (compilo)
-    * Moteur graphique firefox
-    * Moteur de rendu Figma via WASM
-
-* Les pours & contres (3m)
-    * pours
-        * Mêmes perfomances que le C++
-        * Code de production sûr
-        * On peut en faire virtuellement n'importe quoi
-        * Communauté qui grandi de plus en plus
-    * contres
-        * Recrutement
-        * Courbe d'apprentissage
-        * Temps de compilation
-
-* Conclusion
-> uniquement à l'oral
-* *Dans 10 ans*
-    * *Apps mobiles*
-    * *Clients lourds*
-    * *Apprentissage en cours*
+* Chaque slide est séparé par une séparation horizontale `<hr />`.
 
 
+<hr />
 
-## QRCode vers repo
+### Rust, le langage pour les 10 ans à venir
 
-> Slide avec QRCode vers repo github
+> **Commentaires :**  
+> Salutations, remerciements, ...
+>
+> A qui se destine la présentation :
+> Techs - découverte d'un nouveau langage, appréension des gains de Rust par rapport à leurs technos actuelles  
+> CTO - avoir en tête de nouvelles alternatives pour les futurs développements des équipes  
+> Tout le monde - découvrir de nouvelles technos
 
-*Vu que j'ai envie que vous repartiez avec quelque chose*
-*Repo avec ressources d'apprentissage collecté*
+<hr />
 
-## Questions
+### Salut !
+
+* Architecte solution chez Owlnext​
+
+* Auparavant Head of software & sytem architecture chez iBanFirst​
+
+* Quelques réalisations​
+    * Conception d’un système de chiffrage end-to-end : Heimdall​
+    * Création d’un système de téléphonie VoIP via WebRTC avec IVRs, Files d’attentes, redirections d’appels, connexions CRM, etc.​
+    * Refactoring d’un serveur de connexion aux salles de marchés internationale
+
+> **Commentaires :**  
+> Présentation personnelle, rapide.
+
+<hr />
+
+### Rust, c’est quoi ?​
+
+<hr />
+
+### Rust
+
+* Remplaçant du C/C++​
+    * Performances des langages bas-niveau​
+    * Concepts des langages haut-niveau​
+    * Sécurité​
+
+* Utilisé principalement pour​
+    * Des applications systèmes, des backends, des CLI​
+    * Du web avec WASM​
+    * Des services réseaux​
+    * De l'informatique embarqué​
+
+* Créé en 2006 par Graydon Hoare, puis repris à partir de 2010 par la fondation Mozilla​
+
+* Version actuelle : 1.65.0 (2 Novembre 2022)​
+
+* Sa mascotte : Ferris
+
+<hr />
+
+### Pourquoi choisir Rust ?​
+
+Il a
+* Un typage de données algébrique​
+* La validation de l'exécution au moment de la compilation​
+* De la métaprogrammation​
+* Un transpileur natif et intégré​
+* Une intégration des MONADS​
+* Une compatibilité native avec C
+
+Il n'a pas
+* De surprises à l’exécution​
+* De classes​
+* D’environnement d’exécution ou de VM​
+* De transformation type « Bytecode »​
+* De compilation JIT​
+* De garbage collector​
+* De valeurs « NULL »
+
+> **Commentaires :**  
+> * Un typage de données algébrique​ : Jointures de types, comme les promises en JS  
+> * La validation de l'exécution au moment de la compilation​ : tout est validé à la compilation, aucune erreur d'adressage ou de mémoire à l'exécution
+> * De la métaprogrammation​ : vous pouvez programmer Rust avec du Rust via des macros, etc.
+> * Un transpileur natif et intégré​ : vous pouvez interpréter du Rust en Rust, créer un walker, un lexer, etc.
+> * Une compatibilité native avec C : peut exécuter du code C externe, et produire des libs utilisable par C
+
+<hr />
+
+### Les principales caractéristiques de Rust​
+
+* Orientation bas-niveau​
+    * Gestion de la mémoire via le mécanisme d’emprunt​
+    * Gestion des pointeurs et smart-pointers​
+
+* Thread sécurisés intégrés directement au langage​
+    * Validation des mémoires partagés à la compilation​
+
+* Sécurisation & compilation​
+    * Typage strict​
+    * Accès mémoires et emprunts validés à la compilation​
+    * Variables immutables par défaut​
+    * Pas de NULL​
+    * Inférence de type​
+
+* Filtrage par motifs et Foncteurs​
+    * Option<T>, Result<T, E>, Futur<T>, etc.​
+
+​
+* Généricité et métaprogrammation​
+
+<hr />
+
+### We ❤️ Rust ​
+
+> **Commentaires :**  
+> Langage préféré des développeurs sur stackoverflow depuis 7 ans, c-à-d depuis sa version 1.0.
+
+<hr />
+
+### On se lance ?
+
+<hr />
+
+### Installation
+
+> **Commentaires :**  
+> * Installation en one-liner ou un exécutable pour tout les OS principaux
+> * Une fois installé, vous avez tout les outils pour commencer à développer en Rust
+
+<hr />
+
+### L’IDE​
+
+* Visual Studio Code est l’IDE de choix pour Rust​
+    * Gratuit​
+    * Possède toute la suite d’outil pour travailler avec Rust​
+    * Configuration en 2 minutes
+
+> **Commentaires :**  
+> * Pourtant, paye 200€/ans pour des outils Jetbrains tellement je les aiment
+
+<hr />
+
+### Hello world ! ​
+
+> **Commentaires :**  
+> * fonction définie par `fn`, main classique
+> * utilisation d'une macro pour print (définition de rust écrit en rust)
+> * Emoji dans la chaine, car Rust garanti toutes les chaines UTF8 valides
+
+<hr />
+
+### Et après ?​
+
+<hr />
+
+### On déploie comment ?​
+* Un seul binaire de généré pour toute votre application​
+
+* Lançable en une ligne de commande, conteneurisable en 10​
+
+* Tout les outils dont vous avez besoin pour vos CI/CD​
+    * Tests unitaires​
+    * Linting & formatting​
+    * Loggers & outils de monitoring​
+
+* Intégration direct avec les principaux outils de CI/CD
+
+<hr />
+
+### Cargo : le packager​
+
+* Gestionnaire de paquet pour les projets Rust​
+    * Utilise les paquets de crates.io​
+    * Paquets = crates​
+    * Actuellement +100k crates géré sur crates.io​
+
+* Pas qu’un gestionnaire de paquet :​
+    * Installe les outils additionnels (linters, etc.)​
+    * Lance les builds & compilations​
+    * Génère la documentation​
+    * Etc.​
+
+> **Commentaires :**  
+> * Equivalent NPM pour node
+
+<hr />
+
+### Quelques autres outils​
+* RUSTFMT​
+    * Le code-formatter​
+
+* Clippy​
+    * Le linter​
+
+* CargoTest​
+    * Pour les tests unitaires​
+
+* CargoDoc​
+    * Pour la génération de documentation​
+
+​* Tout ces outils sont intégrables automatiquement à VSCode
+
+<hr />
+
+### Le playground
+
+> **Commentaires :**  
+> * Utile pour découvrir Rust et ses mécanismes.
+> * Peut utiliser tout les outils additionnels (fmt, clippy, etc.)
+
+<hr />
+
+### Rust, on en fait quoi ?
+
+<hr />
+
+### Avec Rust, on peut « quasi » tout faire​
+
+* On peut développer​
+    * Des applications CLI/Serveur​
+    * Des ETL​
+    * Des applications haute-performances​
+    * Des applications web​
+    * Des micro-services​
+    * Du remplacement de code legacy C/C++​
+    * Des clients légers & hybrides​
+
+* On ne peut pas – pour l’instant – développer​
+    * Des clients lourds​
+    * Des applications mobiles
+
+<hr />
+
+### Un rapide tour : les CLI avec CLAP​
+
+> **Commentaires :**  
+> * 5 min pour comprendre la lib, et vous avez des CLI avec des beaux paramètres automatiquement parsés
+
+<hr />
+
+### Un rapide tour : Rocket, le framework web​
+
+> **Commentaires :**  
+> * Equivalent Symfony, Django, ROR, Spring, etc.
+
+<hr />
+
+### Un rapide tour : …avec un peu de SQL ? L’ORM Diesel​
+
+> **Commentaires :**  
+> * QueryBuilder, validations des requêtes à la compilation, interconnexion avec le modèle, migrations, etc.
+
+<hr />
+
+### Un rapide tour : Le frontend avec WASM​
+
+> **Commentaires :**  
+> * Permet de faire du développement web... en Rust
+
+<hr />
+
+### Un rapide tour : …ou remplacer React par Yew​
+
+> **Commentaires :**  
+> * La plupart des features de React (routeur, states, hooks, etc.)
+> * 3x plus rapide que React
+
+<hr />
+
+### Un rapide tour : …ou écrire le code lourd de votre app mobile en Rust ? ​
+
+> **Commentaires :**  
+> * Plus rapide que Dart pour les calculs lourds type 3D
+> * On peut faire la même avec Kotlin et Swift
+
+<hr />
+
+### Un rapide tour : et pourquoi pas développer des jeux-vidéo ?​
+
+<hr />
+
+### Et la performance dans tout ça ?
+
+<hr />
+
+### Discord : de Go à Rust​
+
+> **Commentaires :**  
+> * Tout le monde connait discord
+> * millions de messages/conversations vocales et vidéos par jour
+
+<hr />
+
+### Discord : de Go à Rust​
+
+> **Commentaires :**  
+> * Graphique : perf d'un serveur discord écrit en Go
+> * pointes toutes les 2 minutes = lagspike + conso élevé
+> * Après recherche, observation faute du GC
+> * Besoin de réécrire les serveurs avec un langage sans GC
+
+<hr />
+
+### Discord : de Go à Rust​
+
+> **Commentaires :**  
+> * Réécriture des serveurs en Rust
+> * Sans optimisation, Rust plus perfomant que Go
+> * Après finetuning, Rust bats go dans toutes les catégories
+
+<hr />
+
+### Cloudflare : de Nginx à Pingora (Rust)​
+
+> **Commentaires :**  
+> * Moins fréquent mais tout aussi connu : cloudflare
+> * Services de proxy, sécurisation, load-balancing, etc.
+
+<hr />
+
+### Cloudflare : de Nginx à Pingora (Rust)​
+
+> **Commentaires :**  
+> * Cloudfare a réécrit son service de proxy en Rust car Nginx n'était plus assez rapide
+> * On parle de Nginx, écrit en C, proxy/reverse l'un des plus rapide du marché finetuné par cloudflare
+
+<hr />
+
+### Cloudflare : de Nginx à Pingora (Rust)​
+
+> **Commentaires :**  
+> * Pingora, le remplaçant écrit en rust, utilise 70% de CPU en moins, et 67% de RAM en moins
+> * Alors qu'il sert 1 billion de rquêtes par jours, c'est 1 avec 12 zéros derrière
+
+<hr />
+
+### Cloudflare : de Nginx à Pingora (Rust)​
+
+> **Commentaires :**  
+> * Phrase du responsable technique de Pingora chez Cloudflare
+
+<hr />
+
+### Noyau linux : du Rust dans la ver6.1​
+
+> **Commentaires :**  
+> * qui est ce mec ?
+> * Linus torvalds, écrit le noyau linux en 1986, supervise toujours aujourd'hui
+> * Il est souvent connu pour son attention aux détails
+
+<hr />
+
+### Noyau linux : du Rust dans la ver6.1​
+
+> **Commentaires :**  
+> * Ce mec a dit non à l'intégration de C++ dans le noyau car je site :
+> * Dans la version 6.1 de Linux, une partie concernant les drivers sera écrite en Rust
+>
+> D'autres exeples :
+> * Le compilateur de Deno, remplaçant de NodeJS est écrit en Rust​
+> * Magic Pocket, le système de stockage distribué de Dropbox est écrit en Rust
+
+<hr />
+
+### En résumé​
+
+<hr />
+
+### Bon alors, Rust ??​
+
+Les +
+* Mêmes performances que le C​
+* Un code sûr en production​
+* On peut en faire -presque- ce que l’on veut​
+* Une communauté grandissante de jours en jours​
+* Le langage est en cours d’adoption par de grandes entreprises
+
+Les -
+* Le recrutement​
+* La courbe d’apprentissage​
+* Le temps de compilation
+
+> **Commentaires :**  
+> * Anecdote sur communauté
+>
+> * Recrutement : pas de développeurs formé à ce langage nativement
+> * courbe d'apprentissage : peut être difficile si pas les bonnes ressources
+> * temps de compilation : peut prendre du temps sur certains projets, notamment avec de la BD dedans
+
+<hr />
+
+### Conclusion​
+
+> **Commentaires :**  
+> * Aujourd'hui besoin de logiciel performants
+> * Problème c'est que les abstractions des langages rendent de plus en plus énergivore et consommateurs de performances les programmes écrits
+> * De moins en moins d'accès au bas niveau, et donc on doit palier à ça en réécrivant souvent des couches ou paquets par dessus des Frameworks
+>
+> * Rust prend le pari inverse, développer un langage avec des perfs bas niveau, avec tout les concepts de développement haut-niveau (traits, monads, généricité) tout en étant sécurisé et efficace.
+>
+> * Si le C a été le langage des 40 dernières années, et que Rust continue son assention, il pourrait bien être le futur langage des 40 prochaines années. 
+
+<hr />
+
+### 🎁- Le repo Git 
+
+* Le contenu de la présentation​
+
+* Comment bien démarrer Rust​
+
+* Des ressources complémentaires​
+    * Extensions VSCode​
+    * Playlists et vidéos d’explications​
+    * Conteneurs docker prêt à l’emploi​
+
+* …Et bien plus encore
+
+<hr />
+
+### Questions
