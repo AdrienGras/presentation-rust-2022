@@ -9,14 +9,16 @@ La présentation a pour but de présenter rapidement le langage Rust, ainsi que 
 
 ## Au programme
 
-* Présentation du langage
-* Installation
-* Hello World ! 🦀
-* Les outils
+* Présentation personnelle
+* Présentation de Rust
+* Installation, premier programme
+* Déploiement, packaging
 * Rust, on en fait quoi ?
+* Les performances
+* En résumé
+* 🎁
 
-Voici le script de la présentation : [Programme](./programme.md)  
-Et aussi les slides : [Lien vers la présentation](./slides/Rust.pdf)
+Et voici les slides : [Lien vers la présentation](./slides/Rust.pptx)
 
 ## Les ressources
 
@@ -61,11 +63,13 @@ Voici un petit parcours pour apprendre à votre rythme à utiliser Rust et crée
 * [Serde](https://serde.rs/) pour la manipulation de JSON.
 * [Rocket](https://rocket.rs/) comme framework web. *(équivalent Symfony/Laravel, Django, etc.)*
 * [Actix](https://actix.rs/) pour créer un serveur web rapidement. *(Equivalent expressJS)*
-* [Disel](https://diesel.rs/) comme ORM SQL. *(Equivalent Doctrine, Sequelize, etc.)*
+* [Diesel](https://diesel.rs/) comme ORM SQL. *(Equivalent Doctrine, Sequelize, etc.)*
 * [sqlx](https://github.com/launchbadge/sqlx) pour intéragir plus simplement avec une base de données.
+* [Rettle](https://docs.rs/rettle/latest/rettle/) L'ETL simple et performant.
 * [yew](https://yew.rs/) pour un frontend moderne en Rust *(Equivalent React)*
 * [Rust + WASM](https://rustwasm.github.io/docs/book/) ou WASM pour intégrer simplement Rust et Javascript.
 * [TauRi](https://tauri.app/) pour construire des apps hybrides *(Equivalent Electron)*
+* [Iced.rs](https://book.iced.rs/) pour construire des app types "client lourd".
 * [Bevy](https://bevyengine.org/) comme moteur de jeu-vidéo.
 
 ### Des conteneurs docker prêts à l'emploi
