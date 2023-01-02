@@ -50,6 +50,8 @@ Voici un petit parcours pour apprendre à votre rythme à utiliser Rust et crée
 2. [Rust by examples](https://doc.rust-lang.org/rust-by-example/) - Des exemples concrêts pour comprendre Rust 🚀.
 3. [Rustlings](https://github.com/rust-lang/rustlings) - Des exercices intéractifs pour apprendre Rust ⏩.
 
+Alternativement, Google vient de sotir un programme en 4 jours pour maitriser les bases de Rust, vous pouvez le trouver ici : [Comprehensive Rust 🦀](https://google.github.io/comprehensive-rust/)
+
 ### Des vidéos pour comprendre Rust
 
 * [Let's Get Rusty - The rust lang book](https://youtube.com/playlist?list=PLai5B987bZ9CoVR-QEIN9foz4QCJ0H2Y8) - playlist qui suit et explique le Rust cookbook.
