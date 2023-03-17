@@ -49,6 +49,7 @@ Voici un petit parcours pour apprendre à votre rythme à utiliser Rust et crée
 1. [Le cookbook](https://jimskapt.github.io/rust-book-fr/) - Le cookbook pour commencer à apprendre et utiliser Rust 📙.
 2. [Rust by examples](https://doc.rust-lang.org/rust-by-example/) - Des exemples concrêts pour comprendre Rust 🚀.
 3. [Rustlings](https://github.com/rust-lang/rustlings) - Des exercices intéractifs pour apprendre Rust ⏩.
+4. [Learn rust](https://plugins.jetbrains.com/plugin/16631-learn-rust) - Un plugin JetBrains vous permettrant d'apprendre Rust de manière dynamique 🎮.
 
 Alternativement, Google vient de sotir un programme en 4 jours pour maitriser les bases de Rust, vous pouvez le trouver ici : [Comprehensive Rust 🦀](https://google.github.io/comprehensive-rust/)
 
